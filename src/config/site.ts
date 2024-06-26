@@ -1,14 +1,14 @@
 import type { SidebarNavItem, SiteConfig } from "@/types";
 
 export const siteConfig: SiteConfig = {
-  name: "Astronomy",
+  name: "Tzz.Dev",
   description:
-    "An modern example app built using Astro v4 & shadcn/ui. Inspired by shadcn/taxonomy.",
-  url: "https://astro-nomy.vercel.app",
-  ogImage: "https://astro-nomy.vercel.app/og.jpg",
+    "つまらない毎日を記録するためのサイト",
+  url: "https://tzz.dev",
+  ogImage: "https://tzz.dev/og.jpg",
   links: {
-    twitter: "https://twitter.com/miickasmt",
-    github: "https://github.com/mickasmt/astro-nomy",
+    twitter: "https://twitter.com/tzzjp",
+    github: "https://github.com/tzzjp/tzz.dev",
   },
 };
 

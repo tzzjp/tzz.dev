@@ -37,19 +37,19 @@ export const POST: APIRoute = async ({ request }) => {
     );
   }
 
-  if (typeof email === "string") {
-    try {
-      await db.insert(WaitingList).values({ email });
-    } catch (error) {
-      // return error if user insert same email. email is unique!
-      return new Response(
-        JSON.stringify({
-          message: "error",
-        }),
-        { status: 400 }
-      );
-    }
-  }
+  // if (typeof email === "string") {
+  //   try {
+  //     await db.insert(WaitingList).values({ email });
+  //   } catch (error) {
+  //     // return error if user insert same email. email is unique!
+  //     return new Response(
+  //       JSON.stringify({
+  //         message: "error",
+  //       }),
+  //       { status: 400 }
+  //     );
+  //   }
+  // }
 
   return new Response(
     JSON.stringify({

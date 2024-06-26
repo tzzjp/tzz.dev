@@ -1,25 +1,25 @@
 export const prerender = false;
 
 import type { APIRoute } from "astro";
-import { WaitingList, db, sql } from "astro:db";
+// import { WaitingList, db, sql } from "astro:db";
 
 export const GET: APIRoute = async () => {
-  const waiting = await db
-    .select({ count: sql<number>`count(*)`.mapWith(Number) })
-    .from(WaitingList);
+  // const waiting = await db
+  //   .select({ count: sql<number>`count(*)`.mapWith(Number) })
+  //   .from(WaitingList);
 
-  if (!waiting) {
-    return new Response(
-      JSON.stringify({
-        message: "Not found",
-      }),
-      { status: 400 }
-    );
-  }
+  // if (!waiting) {
+  //   return new Response(
+  //     JSON.stringify({
+  //       message: "Not found",
+  //     }),
+  //     { status: 400 }
+  //   );
+  // }
 
   return new Response(
     JSON.stringify({
-      count: waiting[0].count,
+      // count: waiting[0].count,
     }),
     { status: 200 }
   );

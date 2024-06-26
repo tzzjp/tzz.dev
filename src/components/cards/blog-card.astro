@@ -14,15 +14,22 @@ const post = Astro.props;
     href={`/blog/${post.slug}/`}
     class="flex h-52 group-hover:-translate-y-2 group-hover:shadow-xl transition duration-300"
   >
-    <Image
-      loading="eager"
-      class="w-full h-full object-cover rounded-xl overflow-hidden"
-      width={720}
-      height={360}
-      src={post.data.cover}
-      alt="descriptive text"
-      transition:name={`img-${post.slug}`}
-    />
+  {
+    post.data.cover ? (
+      <Image
+        loading="eager"
+        class="w-full h-full object-cover rounded-xl overflow-hidden"
+        width={720}
+        height={360}
+        src={post.data.cover}
+        alt="descriptive text"
+        transition:name={`img-${post.slug}`}
+      />
+    ) : (
+      <div></div>
+    )
+    
+  }
   </a>
 
   <div class="flex items-center justify-between">

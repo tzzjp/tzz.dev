@@ -5,14 +5,15 @@ const blog = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      description: z.string(),
-      cover: z.string(),
+      description: z.string().optional(),
+      cover: z.string().optional(),
       category: z.string(),
       // Transform string to Date object
       pubDate: z
         .string()
         .or(z.date())
-        .transform((val) => new Date(val)),
+        .optional()
+        .transform((val) => val ? new Date(val) : new Date()),
       updatedDate: z
         .string()
         .optional()

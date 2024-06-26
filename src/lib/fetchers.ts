@@ -10,9 +10,17 @@ export async function getCategories() {
 }
 
 export async function getPosts() {
-  const posts = (await getCollection("blog")).sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-  );
+  const posts = (await getCollection("blog"))
+    .filter(entry => !entry.id.endsWith('index.md'))
+    .sort(
+      (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+    )
+    .map(entry => {
+      if(entry.data.cover === undefined) {
+        entry.data.cover = '/images/blog/placeholder-3.jpg';
+      }
+      return entry;
+    });
 
   return posts;
 }

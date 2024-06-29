@@ -18,7 +18,7 @@
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
     "@hookform/resolvers": "^3.6.0",
-    "@iconify-json/lucide": "^1.1.195",
+    "@iconify-json/lucide": "^1.1.196",
     "@iconify-json/mdi": "^1.1.67",
     "@iconify-json/ri": "^1.1.21",
     "@radix-ui/react-accordion": "^1.2.0",

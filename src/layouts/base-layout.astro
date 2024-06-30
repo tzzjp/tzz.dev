@@ -12,10 +12,11 @@ type Props = {
 };
 
 const { title, description, bodyClass } = Astro.props;
+const lang = Astro.currentLocale;
 ---
 
 <!doctype html>
-<html lang="ja" class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
   <head>
     <BaseHead title={title} description={description} />
   </head>

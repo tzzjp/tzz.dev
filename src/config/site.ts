@@ -2,8 +2,7 @@ import type { SidebarNavItem, SiteConfig } from "@/types";
 
 export const siteConfig: SiteConfig = {
   name: "Tzz.Dev",
-  description:
-    "つまらない毎日を記録するためのサイト",
+  description: "つまらない毎日を記録するためのサイト",
   url: "https://tzz.dev",
   ogImage: "https://tzz.dev/og.jpg",
   links: {

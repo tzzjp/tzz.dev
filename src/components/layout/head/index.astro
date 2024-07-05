@@ -1,0 +1,9 @@
+---
+import Meta from './meta.astro';
+import { siteConfig } from '@/config/site';
+const { title } = Astro.props;
+---
+<head>
+  <Meta />
+  <title>{title ? title || '|' || siteConfig.name : siteConfig.name}</title>
+</head>

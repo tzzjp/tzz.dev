@@ -1,20 +1,21 @@
 export interface SiteConfig {
   name?: string,
   description?: string,
-  tag?: string[],
+  tags?: string[],
+  author?: string,
 }
 
 const defaultSiteConfig: SiteConfig = {
   name: 'tzz.dev',
   description: 'tzz.dev',
-  tag: [
+  tags: [
     'tzz',
     '開発',
     'SE'
   ],
+  author: 'tzz',
 }
 
 export function defineSiteConfig(siteConfig: SiteConfig){
   return { ...defaultSiteConfig, ...siteConfig }
 }
-

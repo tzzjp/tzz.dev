@@ -1,12 +1,18 @@
 ---
 import '@/styles/globals.css';
 import Head from '@/components/layout/head/index.astro';
+import Header from '@/components/layout/header/index.astro';
+import Footer from '@/components/layout/footer/index.astro';
 const lang = Astro.currentLocale;
 ---
 <!DOCTYPE html>
 <html lang={lang}>
 <Head />
-<body class="min-h-screen antialiased">
-  <slot />
+<body class="flex flex-col min-h-screen antialiased">
+  <Header />
+  <main class="flex-1">
+    <slot />
+  </main>
+  <Footer />
 </body>
 </html>

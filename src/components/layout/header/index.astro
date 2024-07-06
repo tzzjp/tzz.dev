@@ -1,6 +1,25 @@
 ---
-
+import { Shell } from 'lucide-react'; 
+import { siteConfig, navConfig } from '@/config';
 ---
-<header>
-  header.
+<header class="flex h-16 items-center gap-4 border-b px-4 md:px-6">
+  <nav class="hidden md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
+    <a href="/" class="flex items-center gap-2 text-lg font-semibold md:text-base">
+      <Shell />
+      <span>{siteConfig.name}</span>
+    </a>
+    
+    <!-- Links -->
+    {navConfig.links && navConfig.links.map(link => (
+      <a class="text-lg md:text-base text-gray-500 hover:text-black"
+      href={link.href}>
+        <span>{link.name}</span>
+      </a>
+    ))}
+  </nav>
+
+  <!-- Search -->
+  <div class="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-6">
+
+  </div>
 </header>

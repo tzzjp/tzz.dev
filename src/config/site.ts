@@ -1,6 +1,6 @@
-import { defineSiteConfig } from "@/types/site";
+import { defineSiteConfig } from '@/types/site';
 
-export const siteConfig = defineSiteConfig({
+export default defineSiteConfig({
   name: 'Tzz.Dev',
   description: 'つまらない毎日を記録するためのサイト',
   tags: [

@@ -7,7 +7,9 @@ import vercelStatic from '@astrojs/vercel/static';
 // https://astro.build/config
 export default defineConfig({
   adapter: vercelStatic({
-    webAnalytics: true,
+    webAnalytics: {
+      enabled: true,
+    }
   }),
   i18n: {
     defaultLocale: 'ja',

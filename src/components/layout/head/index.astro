@@ -2,10 +2,10 @@
 import Meta from './meta.astro';
 import { siteConfig } from '@/config';
 import  SpeedInsights  from "@vercel/speed-insights/astro";
-const { title } = Astro.props;
+const { title, description, tags, author } = Astro.props;
 ---
 <head>
-  <Meta />
+  <Meta description={description} tags={tags} author={author} />
 
   <!-- icon -->
   <link rel="icon" type="image/png" href="/icon-192x192.png">

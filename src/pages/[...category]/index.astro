@@ -15,7 +15,11 @@ const { category } = Astro.props;
 const { Content } = await category.render();
 // import { Debug } from 'astro:components';
 ---
-<BlogCategoryLayout>
+<BlogCategoryLayout
+title={category.data.title}
+description={category.data.description}
+tags={category.data.tags}
+author={category.data.author}></BlogCategoryLayout>
   <!-- <Debug {category}/> -->
   <Content />
 </BlogCategoryLayout>

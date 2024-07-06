@@ -5,5 +5,12 @@ const { title } = Astro.props;
 ---
 <head>
   <Meta />
+
+  <!-- icon -->
+  <link rel="icon" type="image/png" href="/icon-192x192.png">
+  
+  <!-- appleデバイスのicon -->
+  <link rel="apple-touch-icon" type="image/png" type="image/png" href="/apple-touch-icon-180x180.png">
+
   <title>{title ? title || '|' || siteConfig.name : siteConfig.name}</title>
 </head>

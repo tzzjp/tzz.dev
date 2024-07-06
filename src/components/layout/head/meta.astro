@@ -9,6 +9,7 @@ const { description, tags, author } = Astro.props;
 <meta name="description" content={description ? description : siteConfig.description}>
 <meta name="keywords" content={tags ? tags : siteConfig.tags}>
 <meta name="author" content={author ? author : siteConfig.author}>
+<meta name="generator" content={Astro.generator}>
 
 <!-- OG -->
 

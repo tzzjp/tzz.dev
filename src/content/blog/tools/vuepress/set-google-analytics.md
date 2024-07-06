@@ -1,6 +1,5 @@
 ---
 title: "VuePressのGoogleアナリティクス設定方法"
-date: 2022-05-02T02:26:01+09:00
 tags:
     - vuepress
     - googleアナリティクス

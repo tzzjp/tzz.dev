@@ -1,6 +1,5 @@
 ---
 title: "Mac で code コマンドで./MacOS/Electron: No such file or directory エラーの解決方法"
-date: 2022-05-28T15:06:36+09:00
 ---
 
 ## 環境

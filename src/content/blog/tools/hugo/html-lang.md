@@ -1,6 +1,5 @@
 ---
 title: "Hugoのhtml langの設定方法"
-date: 2022-04-21T01:23:46+09:00
 tags:
     - hugo
     - lang

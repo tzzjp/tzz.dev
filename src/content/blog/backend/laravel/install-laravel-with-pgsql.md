@@ -1,6 +1,5 @@
 ---
 title: "Laravelプロジェクト新規作成（with pgsql）"
-date: 2022-05-09T01:05:11+09:00
 tags:
     - laravel
     - pgsql

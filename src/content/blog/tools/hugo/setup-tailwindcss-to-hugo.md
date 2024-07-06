@@ -1,6 +1,5 @@
 ---
 title: "Hugoにtailwindcssを導入してみました"
-date: 2022-04-22T00:43:15+09:00
 ---
 
 最近、人気のtailwindcssを勉強し始めたので、Hugoに導入する手順を記録します。

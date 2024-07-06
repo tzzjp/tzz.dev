@@ -1,6 +1,5 @@
 ---
 title: "Hugoでfontawesomeを使う"
-date: 2022-04-25T00:23:17+09:00
 ---
 
 [Font Awesome](https://fontawesome.com/)をHugoで使いたいので、その手順を記録します。

@@ -1,6 +1,5 @@
 ---
 title: "Mac で Command Not Found Code 問題の解決方法"
-date: 2022-05-28T14:44:34+09:00
 ---
 
 ## 環境

@@ -1,6 +1,5 @@
 ---
 title: "timedatectlでタイムゾーンを変更する方法"
-date: 2022-07-02T02:47:11+09:00
 tags:
     - timedatectl
     - timezone

@@ -1,11 +1,23 @@
 ---
 import { getCollection } from 'astro:content';
+import { getGitInfo } from '@/lib/git';
 import BlogLayout from '@/layouts/blog-layout.astro';
 
 export async function getStaticPaths() {
-  const blogs = (await getCollection('blog')).filter(blog => !blog.id.endsWith('index.md'));
+  const blogs = (await getCollection('blog', ({id}) => !id.endsWith('index.md')));
+  
+  const blogsWithGitInfo = await Promise.all(
+    blogs.map(async (blog) => {
+      const gitInfo = await getGitInfo('./src/content/blog/' + blog.id);
+      if(gitInfo === null) {
+        return blog;
+      } else {
+        return { ...blog, data: { ...gitInfo, ...(blog.data || {}) } }
+      }
+    })
+  );
 
-  return blogs.map(blog => ({
+  return blogsWithGitInfo.map(blog => ({
     params: { slug: blog.slug },
     props: { blog }
   }));
@@ -13,13 +25,13 @@ export async function getStaticPaths() {
 
 const { blog } = Astro.props;
 const { Content } = await blog.render();
-// import { Debug } from 'astro:components';
+import { Debug } from 'astro:components';
 ---
 <BlogLayout
 title={blog.data.title}
 description={blog.data.description}
 tags={blog.data.tags}
 author={blog.data.author}>
-  <!-- <Debug {blog}/> -->
+  <Debug {blog}/>
   <Content />
 </BlogLayout>

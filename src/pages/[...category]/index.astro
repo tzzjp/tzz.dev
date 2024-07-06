@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BlogCategoryLayout from '@/layouts/blog-category-layout.astro';
 
 export async function getStaticPaths() {
-  const categories = (await getCollection('blog')).filter(blog => blog.id.endsWith('index.md'));
+  const categories = (await getCollection('blog', ({id}) => id.endsWith('index.md')));
 
   return categories.map((category) => ({
     params: { category: category.slug },

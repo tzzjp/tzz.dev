@@ -1,6 +1,6 @@
 ---
-
+import { siteConfig, footerConfig } from '@/config';
 ---
-<footer>
-  footer.
+<footer class="flex h-10 items-center justify-center border-t">
+  {footerConfig.copyright && <span>&copy;2024 {siteConfig.name}</span> }
 </footer>

@@ -2,6 +2,7 @@
 import Meta from './meta.astro';
 import { siteConfig } from '@/config';
 import  SpeedInsights  from "@vercel/speed-insights/astro";
+import { ViewTransitions } from 'astro:transitions';
 const { title, description, tags, author } = Astro.props;
 ---
 <head>
@@ -22,4 +23,5 @@ const { title, description, tags, author } = Astro.props;
 
 
   <SpeedInsights />
+  <ViewTransitions />
 </head>

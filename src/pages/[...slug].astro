@@ -25,13 +25,13 @@ export async function getStaticPaths() {
 
 const { blog } = Astro.props;
 const { Content } = await blog.render();
-import { Debug } from 'astro:components';
+// import { Debug } from 'astro:components';
 ---
 <BlogLayout
 title={blog.data.title}
 description={blog.data.description}
 tags={blog.data.tags}
 author={blog.data.author}>
-  <Debug {blog}/>
+  <!-- <Debug {blog}/> -->
   <Content />
 </BlogLayout>

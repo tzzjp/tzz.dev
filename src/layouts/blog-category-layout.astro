@@ -1,6 +1,23 @@
 ---
 import BaseLayout from './base-layout.astro';
+const { category } = Astro.props;
 ---
-<BaseLayout>
+<BaseLayout
+  title={category.data.title}
+  description={category.data.description}
+  tags={category.data.tags}
+  author={category.data.author}
+>
+  <p>{category.data.title}</p>
   <slot />
+  
+  <!-- BlogList -->
+  <ul>
+    {category.blogs && category.blogs.map(blog => (
+      <li>
+        <a href={`/${blog.slug}`}>{blog.data.title}</a>
+      </li>
+    ))}
+  </ul>
+  
 </BaseLayout>

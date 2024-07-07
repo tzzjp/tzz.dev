@@ -16,10 +16,10 @@ const { Content } = await blog.render();
 // import { Debug } from 'astro:components';
 ---
 <BlogLayout
-title={blog.data.title}
-description={blog.data.description}
-tags={blog.data.tags}
-author={blog.data.author}>
+  title={blog.data.title}
+  description={blog.data.description}
+  tags={blog.data.tags}
+  author={blog.data.author}>
   <!-- <Debug {blog}/> -->
   <Content />
 </BlogLayout>

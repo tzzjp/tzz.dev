@@ -14,7 +14,7 @@ const { title, description, tags, author } = Astro.props;
   <!-- appleデバイスのicon -->
   <link rel="apple-touch-icon" type="image/png" type="image/png" href="/apple-touch-icon-180x180.png">
 
-  <title>{title ? title || '|' || siteConfig.name : siteConfig.name}</title>
+  <title>{title ? title + ' | ' + siteConfig.name : siteConfig.name}</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

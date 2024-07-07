@@ -13,15 +13,10 @@ export async function getStaticPaths() {
 
 const { category } = Astro.props;
 const { Content } = await category.render();
-// import { Debug } from 'astro:components';
+import { Debug } from 'astro:components';
 ---
 
-<BlogCategoryLayout
-  title={category.data.title}
-  description={category.data.description}
-  tags={category.data.tags}
-  author={category.data.author}
->
-  <!-- <Debug {category} /> -->
+<BlogCategoryLayout category={category}>
+  <Debug {category} />
   <Content />
 </BlogCategoryLayout>

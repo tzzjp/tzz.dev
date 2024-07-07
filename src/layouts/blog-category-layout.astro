@@ -1,6 +1,9 @@
 ---
+import type { getStaticPaths } from '@/pages/[...category]/index.astro';
 import BaseLayout from './base-layout.astro';
-const { category } = Astro.props;
+import type { InferGetStaticPropsType } from 'astro';
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { category } = Astro.props as Props;
 ---
 <BaseLayout
   title={category.data.title}

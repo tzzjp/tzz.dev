@@ -20,7 +20,7 @@ export async function getCategories() {
   
   return categories.map(category => ({
     ...category,
-    subcategories: categories.filter(subCategory => {
+    subCategories: categories.filter(subCategory => {
       if (subCategory.id === category.id) return false;
       const relativeSlug = subCategory.slug.replace(category.slug, '');
       return relativeSlug.startsWith('/') && !relativeSlug.slice(1).includes('/');

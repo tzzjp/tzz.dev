@@ -1,0 +1,33 @@
+import { getCollection } from 'astro:content';
+import { getGitInfo } from '@/lib/git';
+
+export async function getBlogs() {
+  const blogs = await getCollection('blog', ({ id }) => !id.endsWith('index.md'));
+  
+  const blogsWithGitInfo = await Promise.all(
+    blogs.map(async (blog) => {
+      const gitInfo = await getGitInfo('./src/content/blog/' + blog.id);
+      return gitInfo ? { ...blog, data: { ...gitInfo, ...(blog.data || {}) } } : blog;
+    })
+  );
+
+  return blogsWithGitInfo;
+}
+
+export async function getCategories() {
+  const categories = await getCollection('blog', ({ id }) => id.endsWith('index.md'));
+  const blogs = await getBlogs();
+  
+  return categories.map(category => ({
+    ...category,
+    subcategories: categories.filter(subCategory => {
+      if (subCategory.id === category.id) return false;
+      const relativeSlug = subCategory.slug.replace(category.slug, '');
+      return relativeSlug.startsWith('/') && !relativeSlug.slice(1).includes('/');
+    }),
+    blogs: blogs.filter(blog => {
+      const relativeSlug = blog.slug.replace(category.slug, '');
+      return relativeSlug.startsWith('/') && !relativeSlug.slice(1).includes('/');
+    }),
+  }));
+}

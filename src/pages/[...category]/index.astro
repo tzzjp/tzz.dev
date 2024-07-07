@@ -1,13 +1,13 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCategories } from '@/lib/content';
 import BlogCategoryLayout from '@/layouts/blog-category-layout.astro';
 
 export async function getStaticPaths() {
-  const categories = (await getCollection('blog', ({id}) => id.endsWith('index.md')));
+  const categories = await getCategories();
 
-  return categories.map((category) => ({
+  return categories.map(category => ({
     params: { category: category.slug },
-    props: { category }
+    props: { category },
   }));
 }
 
@@ -15,11 +15,13 @@ const { category } = Astro.props;
 const { Content } = await category.render();
 // import { Debug } from 'astro:components';
 ---
+
 <BlogCategoryLayout
-title={category.data.title}
-description={category.data.description}
-tags={category.data.tags}
-author={category.data.author}>
-  <!-- <Debug {category}/> -->
+  title={category.data.title}
+  description={category.data.description}
+  tags={category.data.tags}
+  author={category.data.author}
+>
+  <!-- <Debug {category} /> -->
   <Content />
 </BlogCategoryLayout>

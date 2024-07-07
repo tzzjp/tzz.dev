@@ -1,23 +1,11 @@
 ---
-import { getCollection } from 'astro:content';
-import { getGitInfo } from '@/lib/git';
+import { getBlogs } from '@/lib/content';
 import BlogLayout from '@/layouts/blog-layout.astro';
 
 export async function getStaticPaths() {
-  const blogs = (await getCollection('blog', ({id}) => !id.endsWith('index.md')));
-  
-  const blogsWithGitInfo = await Promise.all(
-    blogs.map(async (blog) => {
-      const gitInfo = await getGitInfo('./src/content/blog/' + blog.id);
-      if(gitInfo === null) {
-        return blog;
-      } else {
-        return { ...blog, data: { ...gitInfo, ...(blog.data || {}) } }
-      }
-    })
-  );
+  const blogs = await getBlogs();
 
-  return blogsWithGitInfo.map(blog => ({
+  return blogs.map(blog => ({
     params: { slug: blog.slug },
     props: { blog }
   }));

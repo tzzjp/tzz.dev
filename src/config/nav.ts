@@ -1,7 +1,12 @@
 import type { NavConfig } from '@/types/nav';
 
 const navConfig: NavConfig = {
-  links: []
+  links: [
+    {
+      name: 'Blog',
+      href: '/blog'
+    }
+  ]
 }
 
 export default navConfig;

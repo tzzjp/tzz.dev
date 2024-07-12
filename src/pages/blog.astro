@@ -1,6 +1,19 @@
 ---
 import MainLayout from '@/layouts/main-layout.astro';
+import { getBlogs } from '@/lib/content';
+const blogs = await getBlogs();
 ---
 <MainLayout>
-  Blog
+  <ul>
+    {blogs && blogs.map(blog => (
+      <li>
+        <a
+          href={blog.slug}
+        >
+          <span>{blog.data.title}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+  
 </MainLayout>

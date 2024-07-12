@@ -9,7 +9,7 @@ const { blog } = Astro.props;
   author={blog.author}
 >
   <h1 class="text-center text-xl font-bold">{blog.title}</h1>
-  <div class="mx-60 flex justify-between">
+  <div class="flex justify-center gap-10">
     <span>発表時間：{blog.pubDate}</span>
     <span>更新時間：{blog.lastModified}</span>
   </div>

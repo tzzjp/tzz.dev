@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
 import { getGitInfo } from '@/lib/git';
+import { format } from 'date-fns';
 
 export async function getBlogs() {
   const blogs = await getCollection('blog', ({ id }) => !id.endsWith('index.md'));
@@ -7,7 +8,15 @@ export async function getBlogs() {
   const blogsWithGitInfo = await Promise.all(
     blogs.map(async (blog) => {
       const gitInfo = await getGitInfo('./src/content/blog/' + blog.id);
-      return gitInfo ? { ...blog, data: { ...gitInfo, ...(blog.data || {}) } } : blog;
+      return gitInfo ? {
+        ...blog,
+        data: {
+          ...blog.data,
+          ...gitInfo,
+          pubDate: format(gitInfo.pubDate, 'yyyy-MM-dd HH:mm:ss'),
+          lastModified: format(gitInfo.lastModified, 'yyyy-MM-dd HH:mm:ss'),
+        },
+      } : blog;
     })
   );
 

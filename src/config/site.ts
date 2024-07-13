@@ -8,5 +8,6 @@ export default defineSiteConfig({
     'SE',
     'IT',
     '日本'
-  ]
+  ],
+  github: 'https://github.com/tzzjp/tzz.dev',
 })

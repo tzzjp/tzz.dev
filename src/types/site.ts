@@ -3,6 +3,7 @@ export interface SiteConfig {
   description?: string,
   tags?: string[],
   author?: string,
+  github?: string,
 }
 
 const defaultSiteConfig: SiteConfig = {
@@ -14,6 +15,7 @@ const defaultSiteConfig: SiteConfig = {
     'SE'
   ],
   author: 'tzz',
+  github: 'https://github.com/tzzjp/tzz.dev'
 }
 
 export function defineSiteConfig(siteConfig: SiteConfig){

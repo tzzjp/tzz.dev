@@ -12,7 +12,7 @@ import { siteConfig, navConfig } from '@/config';
     <!-- Links -->
     {navConfig.links && navConfig.links.map(link => (
       <a
-        class={`text-lg md:text-base hover:text-black ${Astro.url.pathname === link.href ? '' : 'text-gray-500'}`}
+        class={`text-lg md:text-base hover:text-black ${Astro.url.pathname.startsWith(link.href) ? '' : 'text-gray-500'}`}
         href={link.href}
       >
         <span>{link.name}</span>

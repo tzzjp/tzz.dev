@@ -1,6 +1,6 @@
 ---
 import BaseLayout from './base-layout.astro';
-const { title, description, tags, author } = Astro.props;
+const { title, description, tags, author, cover } = Astro.props;
 ---
 
 <BaseLayout
@@ -8,6 +8,7 @@ const { title, description, tags, author } = Astro.props;
   description={description}
   tags={tags}
   author={author}
+  cover={cover}
 >
   <slot />
 </BaseLayout>
